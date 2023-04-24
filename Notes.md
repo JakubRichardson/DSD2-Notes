@@ -48,14 +48,16 @@ Full binary addition requires both an input carry $C_{in}$ and output carry $C_{
 
 A simple way to synthesise this truth table into the correpoding (simplified) binary expressions utilises Karnaugh maps. The Karnaugh map for $C_{out}$ is:
 
-![Carry out Karnaugh Map](Images/CarryOut.png)
+
+<p align="center">
+    <img src="./Images/CarryOut.png" alt="Carry out Karnaugh Map" width="300"/>
+</p>
 
 $$ C_{out} = A.B + A.C_{in} + B.C_{in} $$
 
-
-
-![Sum Karnaugh Map](Images/SumKarn.png)
-
+<p align="center">
+    <img src="./Images/SumKarn.png" alt="Sum Karnaugh Map" width="300"/>
+</p>
 
 
 
