@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+    <title>k-map generator</title>
+</head>
+
+<body>
+    <div class="container no-select">
+        <table>
+            <td class="box" data-width="1" data-height="2" data-position="2"></td>
+            <td class="box" data-width="2" data-height="1" data-position="5"></td>
+            <td class="box" data-width="2" data-height="1" data-position="6"></td>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td colspan="2" val="A">A</td>
+            <tr>
+            <tr>
+                <td></td>
+                <td class="data">0</td>
+                <td class="data">0</td>
+                <td class="data">1</td>
+                <td class="data">0</td>
+            </tr>
+            <tr>
+                <td val="C">C<sub>in</sub></td>
+                <td class="data">0</td>
+                <td class="data">1</td>
+                <td class="data">1</td>
+                <td class="data">1</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td colspan="2" val="B">B</td>
+                <td></td>
+            <tr>
+        </table>
+    </div>
+</body>
+
+</html>

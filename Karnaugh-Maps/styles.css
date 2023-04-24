@@ -1,0 +1,76 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --table-color: #595959;
+    --table-text-color: #ffadad;
+    --data-color: #b8c2ff;
+    --tile-size: 3rem;
+    --box-size: 0.8;
+    --box-color: #f68b21;
+}
+
+body {
+    background-color: #eef0eb;
+}
+
+.container {
+    display: flex;
+    margin-top: 3rem;
+    justify-content: center;
+}
+
+table {
+    text-align: center;
+    font: 2em sans-serif;
+    color: var(--table-text-color);
+    border-collapse: collapse;
+    position: relative;
+    margin-right: var(--tile-size);
+}
+
+.no-select {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+td {
+    width: var(--tile-size);
+    height: var(--tile-size);
+}
+
+.data {
+    border: 2px solid var(--table-color);
+    color: var(--data-color);
+}
+
+td[val="A"] {
+    border-left: 2px solid var(--table-color);
+}
+
+td[val="B"] {
+    border-left: 2px solid var(--table-color);
+    border-right: 2px solid var(--table-color);
+}
+
+td[val="C"] {
+    border-top: 2px solid var(--table-color);
+}
+
+.box {
+    border: 2px solid var(--box-color);
+    position: absolute;
+    border-radius: 10px;
+}
