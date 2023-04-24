@@ -118,7 +118,7 @@ The full-adder circuit symbol is:
 
 ### Ripple Carry Adder
 
-The full addition of $A_{3:0} = \{A_3, A_2, A_1, A_0 \}$ and $B_{3:0} = \{B_3, B_2, B_1, B_0 \}$ generating $S_{3:0} = \{S_3, S_2, S_1, S_0 \}$ can be implemented using consecutive full-adder's:
+The full addition of $A_{3:0} = \\{A_3, A_2, A_1, A_0 \\}$ and $B_{3:0} = \\{B_3, B_2, B_1, B_0 \\}$ generating $S_{3:0} = \\{S_3, S_2, S_1, S_0 \\}$ can be implemented using consecutive full-adder's:
 
 <p align="center">
     <img src="./Images/Ripple-Carry-Adder.png" alt="Full-Adder Circuit Symbol" width="300"/>
