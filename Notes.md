@@ -1,8 +1,5 @@
 # Digital Systems Design 2
 
-$$ \newcommand{\xor}{\oplus} $$
-$$ \renewcommand{\not}[1]{\overline#1} $$
-
 ## Combinational Logic
 
 ### Implemetation of Arithmetic Functions
@@ -22,7 +19,7 @@ Synthesising the above truth table for the outputs $C_{out}$ and $Sum$ we get th
 
 $$C_{out} = A.B$$
 
-$$Sum = \not{A}.B + A.\not{B} = A \xor B$$
+$$Sum = \overline{A}.B + A.\overline{B} = A \oplus B$$
 
 The logic-circuit implemetation of the binary half adder is:
 
