@@ -72,9 +72,13 @@ $$\overline{A \oplus B} = \overline{A.\overline{B} + \overline{A}.B} = \left(\ov
 The checkerboard Karnaugh map pattern hints at the XOR pattern, thus simplifying the expression for $Sum$:
 
 $$Sum = \overline{A}.B.\overline{C_{in}} + A.\overline{B}.\overline{C_{in}} + \overline{A}.\overline{B}.C_{in} + A.B.C_{in}$$
+
 $$= \overline{C_{in}}(\overline{A}.B + A.\overline{B}) + C_{in}(\overline{A}.\overline{B} + A.B)$$
+
 $$ \overline{C_{in}}(A \oplus B) + C_{in}(\overline{A}.\overline{B} + A.B)$$
+
 $$= \overline{C_{in}}(A \oplus B) + C_{in}(\overline{A \oplus B})$$
+
 $$= A \oplus B \oplus C_{in}$$
 
 The full-adder circuit implementation is:
@@ -90,12 +94,15 @@ $$Sum_{fa} = A \oplus B \oplus C_{in} = Sum_{ha} \oplus C_{in}$$
 Similarly the full-adder carry output $C_{out}$ can be implemented using half-adders:
 
 $$C_{out} = A.B + A.C_{in} + B.C_{in}$$
+
 $$= A.B + (A + B).C_{in}$$
 
 As the case where both $A$ and $B$ are true is covered by the first min-term in the expresion the second term can be changed to XOR, without changing the expressions value:
 
 $$C_{out} = A.B + (A + B).C_{in}$$
+
 $$= A.B + (A \oplus B).C_{in}$$
+
 $$= A.B + (Sum_{ha}).C_{in}$$
 
 The full-adder can thus be implemented using half-adder's:
