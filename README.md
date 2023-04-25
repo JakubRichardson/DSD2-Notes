@@ -24,13 +24,13 @@ $$Sum = \overline{A}.B + A.\overline{B} = A \oplus B$$
 The logic-circuit implementation of the binary half-adder is:
 
 <p align="center">
-    <img src="./Images/Half-Adder.png" alt="Half-Adder Circuit" width="250"/>
+    <img src="./Images/Arithmetic/Half-Adder.png" alt="Half-Adder Circuit" width="250"/>
 </p>
 
 Or equivalently using an XOR gate:
 
 <p align="center">
-    <img src="./Images/Half-Adder-XOR.png" alt="Simplified Half-Adder Circuit" width="200"/>
+    <img src="./Images/Arithmetic/Half-Adder-XOR.png" alt="Simplified Half-Adder Circuit" width="200"/>
 </p>
 
 
@@ -54,13 +54,13 @@ A simple way to synthesize this truth table into the corresponding (simplified) 
 
 
 <p align="center">
-    <img src="./Images/CarryOut.png" alt="Carry out Karnaugh Map" width="300"/>
+    <img src="./Images/Arithmetic/CarryOut.png" alt="Carry out Karnaugh Map" width="300"/>
 </p>
 
 $$C_{out} = A.B + A.C_{in} + B.C_{in}$$
 
 <p align="center">
-    <img src="./Images/SumKarn.png" alt="Sum Karnaugh Map" width="300"/>
+    <img src="./Images/Arithmetic/SumKarn.png" alt="Sum Karnaugh Map" width="300"/>
 </p>
 
 $$Sum = \overline{A}.B.\overline{C_{in}} + A.\overline{B}.\overline{C_{in}} + \overline{A}.\overline{B}.C_{in} + A.B.C_{in} $$
@@ -84,7 +84,7 @@ $$= A \oplus B \oplus C_{in}$$
 The full-adder circuit implementation is:
 
 <p align="center">
-    <img src="./Images/Full-Adder.png" alt="Full-Adder Circuit" width="250"/>
+    <img src="./Images/Arithmetic/Full-Adder.png" alt="Full-Adder Circuit" width="250"/>
 </p>
 
 Logically, a full-adder is an extension of the half-adder with a carry input $C_{in}$. The half adder outputs $C_{ha}=A.B$ and sum $Sum_{ha} = A \oplus B$. The full adder sumation is simply the XOR of half-adder sum output $Sum_{ha}$ with the input $C_{in}$:
@@ -108,12 +108,12 @@ $$= A.B + (Sum_{ha}).C_{in}$$
 The full-adder can thus be implemented using half-adder's:
 
 <p align="center">
-    <img src="./Images/Full-Adder-Half.png" alt="Full-Adder Circuit using Half-Adder's" width="350"/>
+    <img src="./Images/Arithmetic/Full-Adder-Half.png" alt="Full-Adder Circuit using Half-Adder's" width="350"/>
 </p>
 
 The full-adder circuit symbol is:
 <p align="center">
-    <img src="./Images/Full-Adder-Symbol.png" alt="Full-Adder Circuit Symbol" width="150"/>
+    <img src="./Images/Arithmetic/Full-Adder-Symbol.png" alt="Full-Adder Circuit Symbol" width="150"/>
 </p>
 
 ### Ripple Carry Adder
@@ -121,7 +121,7 @@ The full-adder circuit symbol is:
 The full addition of $A_{3:0} = \\{A_3, A_2, A_1, A_0 \\}$ and $B_{3:0} = \\{B_3, B_2, B_1, B_0 \\}$ generating $S_{3:0} = \\{S_3, S_2, S_1, S_0 \\}$ can be implemented using consecutive full-adder's:
 
 <p align="center">
-    <img src="./Images/Ripple-Carry-Adder.png" alt="Full-Adder Circuit Symbol" width="300"/>
+    <img src="./Images/Arithmetic/Ripple-Carry-Adder.png" alt="Full-Adder Circuit Symbol" width="300"/>
 </p>
 
 The Sum outputs $S_{3:0}$ are generated as the carry ripples through the chain of adders. 
@@ -158,26 +158,88 @@ TODO: Complete
 
 ## CMOS Implementation of Boolean Functions
 
+Complementary Metal Oxide Semiconductor technology (CMOS)
+
+- Most common integrated circuit technology
+- Used to implement digital circuits as it provides high noise immunity and low static power consumption
+- Can also be used to implement analogue circuits and image sensors
+- Continued development of this technology has allowed extremely small transistor size
+- current microprocessors contain hundreds of millions of CMOS logic gates (transistors) on a single chip
+
 ### Switches
+
+There are two fundamental transistors/switches used in CMOS: NMOS and PMOS transistors. The transistors considered in this course are all enhancement mode. The N/P in the transistor name refers to the source and drain material, and thus also the channel
 
 #### NMOS transistor
 
-proagate 
+As indicated by the single line on the symbol above, the NMOS transistor is On/closed when the control signal G is high
 
+Due to n-type source and drain:
+- Poor conduction when A/B is high
+- Good conduction when A/B is low
+- Therefore, the NMOS transistor is used in pull-down networks
+
+Due to the source being n-type we must connect it to a source of electrons - $V_{ss}$
 
 #### PMOS transistor
 
-#### Bi-Lateral Switch
+As indicated by the circle above the single line on the symbol above, the PMOS transistor is On/closed when the control signal G is low
+
+Due to p-type source and drain:
+- Poor conduction when A/B is low
+- Good conduction when A/B is high
+- Therefore, the PMOS transistor is used in pull-up networks
+
+
+Due to the source being p-type we must connect it to a source of holes - $V_{dd}$
+
+### Transmission Gate - Bi-Lateral CMOS Switch
+As described in the [Switches](#switches) section above, NMOS/PMOS transistors have opposing conductivity properties. The combination of these conductivity characteristics can thus be used to transmit both strong logic high and low signals in any direction without signal degradation. Connecting PMOS and NMOS devices together in parallel we create the basic bi-lateral CMOS switch, or "Transmission Gate". The CMOS implementation (left) and the circuit symbol (right) are:
+
+<p align="center">
+    <img src="./Images/CMOS/TransmissionGate.png" alt="Transmission Gate CMOS Implementation and Circuit Symbol" width="400"/>
+</p>
+
+>**Note:** The transmission gate is somewhat different to normal CMOS logic gates. Due to symmetry, the input and output are interchangeable. The circuit symbol with 2 opposite pointing triangles indicates this, as does the bi-lateral name
+
+For more info view: [Transmission Gate](https://www.electronics-tutorials.ws/combination/transmission-gate.html)
 
 ### NOT gate
+The NOT gate can be implemented using CMOS technology as:
+
+<p align="center">
+    <img src="./Images/CMOS/NOT.png" alt="NOT gate CMOS Implementation and Circuit Symbol" width="250"/>
+</p>
+
+Clearly, the NMOS pulls down the output $out$ when the input signal $in$ is high, and the PMOS is turned off. Similarly, the PMOS pulls up the output $out$ when the input signal $in$ is low, and the NMOS is turned off
+
+TODO: waveforms
 
 ### NAND gate
+The NAND gate corresponds to the following logical expression $F = \overline{A.B}$. The output of the gate $F$ is low (pulled down) when both $A$ and $B$ are true. Applying DeMorgan's law the equivalent logical expression is $F = \overline{A.B} = \overline{A} + \overline{B}$. Clearly the output of the gate $F$ is high (pulled up) when $A$ or $B$ are low, this corresponds to the parallel PMOS pull up network configuration. The NAND gate can thus be implemented using CMOS technology as:
+
+<p align="center">
+    <img src="./Images/CMOS/NAND.png" alt="NAND gate CMOS Implementation and Circuit Symbol" width="200"/>
+</p>
 
 ### NOR gate
+<!-- The NAND gate corresponds to the following logical expression $F = \overline{A.B}$. The output of the gate $F$ is low (pulled down) when both $A$ and $B$ are true. Applying DeMorgan's law the equivalent logical expression is $F = \overline{A.B} = \overline{A} + \overline{B}$. Clearly the output of the gate $F$ is high (pulled up) when $A$ or $B$ are low, this corresponds to the parallel PMOS pull up network configuration. The NAND gate can thus be implemented using CMOS technology as: -->
+
+<p align="center">
+    <img src="./Images/CMOS/NOR.png" alt="NOR gate CMOS Implementation and Circuit Symbol" width="200"/>
+</p>
 
 ### AND gate
 
+<p align="center">
+    <img src="./Images/CMOS/AND.png" alt="AND gate CMOS Implementation and Circuit Symbol" width="200"/>
+</p>
+
 ### OR gate
+
+<p align="center">
+    <img src="./Images/CMOS/OR.png" alt="OR gate CMOS Implementation and Circuit Symbol" width="200"/>
+</p>
 
 ### Number of Transistors per gate
 
