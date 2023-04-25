@@ -179,7 +179,7 @@ Due to n-type source and drain:
 - Good conduction when A/B is low
 - Therefore, the NMOS transistor is used in pull-down networks
 
-Due to the source being n-type we must connect it to a source of electrons - $V_{ss}$
+Due to the source being n-type we must connect it to a source of electrons: $V_{ss}$
 
 #### PMOS transistor
 
@@ -191,7 +191,7 @@ Due to p-type source and drain:
 - Therefore, the PMOS transistor is used in pull-up networks
 
 
-Due to the source being p-type we must connect it to a source of holes - $V_{dd}$
+Due to the source being p-type we must connect it to a source of holes: $V_{dd}$
 
 ### Transmission Gate - Bi-Lateral CMOS Switch
 As described in the [Switches](#switches) section above, NMOS/PMOS transistors have opposing conductivity properties. The combination of these conductivity characteristics can thus be used to transmit both strong logic high and low signals in any direction without signal degradation. Connecting PMOS and NMOS devices together in parallel we create the basic bi-lateral CMOS switch, or "Transmission Gate". The CMOS implementation (left) and the circuit symbol (right) are:
@@ -211,31 +211,47 @@ The NOT gate can be implemented using CMOS technology as:
     <img src="./Images/CMOS/NOT.png" alt="NOT gate CMOS Implementation and Circuit Symbol" width="250"/>
 </p>
 
-Clearly, the NMOS pulls down the output $out$ when the input signal $in$ is high, and the PMOS is turned off. Similarly, the PMOS pulls up the output $out$ when the input signal $in$ is low, and the NMOS is turned off
+Clearly, the NMOS pulls down the output ($out$) when the input signal ($in$) is high, and the PMOS is turned off. Similarly, the PMOS pulls up the output ($out$) when the input signal ($in$) is low, and the NMOS is turned off
 
 TODO: waveforms
 
 ### NAND gate
-The NAND gate corresponds to the following logical expression $F = \overline{A.B}$. The output of the gate $F$ is low (pulled down) when both $A$ and $B$ are true. Applying DeMorgan's law the equivalent logical expression is $F = \overline{A.B} = \overline{A} + \overline{B}$. Clearly the output of the gate $F$ is high (pulled up) when $A$ or $B$ are low, this corresponds to the parallel PMOS pull up network configuration. The NAND gate can thus be implemented using CMOS technology as:
+The NAND gate corresponds to the following logical expression $F = \overline{A.B}$. The output of the gate $F$ is low (pulled down) when both $A$ and $B$ are true ($\overline{F} = A.B$). Applying DeMorgan's law the equivalent logical expression is $F = \overline{A.B} = \overline{A} + \overline{B}$. Clearly the output of the gate $F$ is high (pulled up) when $A$ or $B$ are low, this corresponds to the parallel PMOS pull up network configuration. The NAND gate can thus be implemented using CMOS technology as:
 
 <p align="center">
     <img src="./Images/CMOS/NAND.png" alt="NAND gate CMOS Implementation and Circuit Symbol" width="200"/>
 </p>
 
+Similarly, a 3-input NAND gate can be implemented using CMOS technology as:
+
+<p align="center">
+    <img src="./Images/CMOS/3NAND.png" alt="3-input NAND gate CMOS Implementation and Circuit Symbol" width="200"/>
+</p>
+
+
 ### NOR gate
-<!-- The NAND gate corresponds to the following logical expression $F = \overline{A.B}$. The output of the gate $F$ is low (pulled down) when both $A$ and $B$ are true. Applying DeMorgan's law the equivalent logical expression is $F = \overline{A.B} = \overline{A} + \overline{B}$. Clearly the output of the gate $F$ is high (pulled up) when $A$ or $B$ are low, this corresponds to the parallel PMOS pull up network configuration. The NAND gate can thus be implemented using CMOS technology as: -->
+The NOR gate corresponds to the following logical expression $F = \overline{A + B}$. The output of the gate $F$ is low (pulled down) when either $A$ and $B$ are true ($\overline{F} = A + B$). Applying DeMorgan's law the equivalent logical expression is $F = \overline{A + B} = \overline{A}.\overline{B}$. Clearly the output of the gate $F$ is high (pulled up) when both $A$ and $B$ are low, this corresponds to the series PMOS pull up network configuration. The NOR gate can thus be implemented using CMOS technology as:
 
 <p align="center">
     <img src="./Images/CMOS/NOR.png" alt="NOR gate CMOS Implementation and Circuit Symbol" width="200"/>
 </p>
 
+Similarly, a 3-input NOR gate can be implemented using CMOS technology as:
+
+<p align="center">
+    <img src="./Images/CMOS/3NOR.png" alt="3-input NOR gate CMOS Implementation and Circuit Symbol" width="200"/>
+</p>
+
+
 ### AND gate
+It is not possible to implement the AND gate using only a simple pull-up and pull-down network. An AND gate can thus be implemented as an [NAND gate](#nand-gate) followed by a [NOT gate](#not-gate):
 
 <p align="center">
     <img src="./Images/CMOS/AND.png" alt="AND gate CMOS Implementation and Circuit Symbol" width="200"/>
 </p>
 
 ### OR gate
+Similarly, as with an [AND gate](#and-gate) it is not possible to implement the OR gate using only a simple pull-up and pull-down network. An OR gate can thus be implemented as an [NOR gate](#nor-gate) followed by a [NOT gate](#not-gate):
 
 <p align="center">
     <img src="./Images/CMOS/OR.png" alt="OR gate CMOS Implementation and Circuit Symbol" width="200"/>
