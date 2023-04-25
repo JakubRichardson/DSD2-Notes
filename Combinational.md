@@ -85,7 +85,7 @@ The full-adder circuit implementation is:
     <img src="./Images/Arithmetic/Full-Adder.png" alt="Full-Adder Circuit" width="250"/>
 </p>
 
-Logically, a full-adder is an extension of the half-adder with a carry input $C_{in}$. The half adder outputs $C_{ha}=A.B$ and sum $Sum_{ha} = A \oplus B$. The full adder sumation is simply the XOR of half-adder sum output $Sum_{ha}$ with the input $C_{in}$:
+Logically, a full-adder is an extension of the half-adder with a carry input $C_{in}$. The half adder outputs $C_{ha}=A.B$ and sum $Sum_{ha} = A \oplus B$. The full adder summation is simply the XOR of half-adder sum output $Sum_{ha}$ with the input $C_{in}$:
 
 $$Sum_{fa} = A \oplus B \oplus C_{in} = Sum_{ha} \oplus C_{in}$$
 
@@ -148,9 +148,60 @@ Clearly $t_{adder}$ increases linearly with the number of bits $n$, and it is th
 
 ### Carry Lookahead Adder
 
-TODO: Complete including Ripple adder Carry status truth table
+| $a_{i}$ | $b_{i}$ | $c_{i}$ | $c_{i+1}$ | $s_{i}$ | Carry Status |
+|-----|-----|----------|-----------|-------|--------------|
+| 0 | 0 | 0 | 0 | 0 | Delete |
+| 0 | 0 | 1 | 0 | 1 | Delete |
+| 0 | 1 | 0 | 0 | 1 | Propagate |
+| 0 | 1 | 1 | 1 | 0 | Propagate |
+| 1 | 0 | 0 | 0 | 1 | Propagate |
+| 1 | 0 | 1 | 1 | 0 | Propagate |
+| 1 | 1 | 0 | 1 | 0 | Generate |
+| 1 | 1 | 1 | 1 | 1 | Generate |
+
+As per the table above, the carry output signal $c_{i+1}$ is generated $G_{i}$ in the case that both $a_{i}$ and $b_{i}$ are 1, or propagated $P_{i}$ (passed through from $c_{i}$) when either $A$ or $B$ (not both) are 1:
+
+$$G_{i} = a_{i}.b_{i}$$
+
+$$P_{i} = a_{i} \oplus b_{i}$$
+
+Looking at the [Full-Adder](#binary-full-adder) circuit, $G_{i}$ is clearly the carry output and the $P_{i}$ is the sum of the first [Half-Adder](#binary-half-adder) the circuit is comprised of:
+
+<p align="center">
+    <img src="./Images/Arithmetic/Full-Adder-CLA.png" alt="CLA Full-Adder Circuit Diagram" width="300"/>
+</p>
+
+The full-adder outputs can be re-written as:
+
+$$s_{i} = a_{i} \oplus b_{i} \oplus c_{i} = P_{i} \oplus c_{i}$$
+
+$$c_{i+1} = a_{i}.b_{i} + (a_{i} \oplus b_{i}).c_{i} = G_{i} + P_{i}.c_{i}$$
+
+The outputs $G_{i}$ and $P_{i}$ are far simpler functions then $c_{i+1}$ and $s_{i}$, thus they will be available faster. Using this we do not need to wait for the carry signal to ripple through all the previous stages. For a 4-bit adder this would be:
+
+$$c_{1} = G_{0} + P_{0}.c_{0}$$
+
+$$c_{2} = G_{1} + P_{1}.G_{0} + P_{1}.P_{0}.c_{0}$$
+
+$$c_{3} = G_{2} + P_{2}.G_{1} + P_{2}.P_{1}.G_{0} + P_{2}.P_{1}.P_{0}.c_{0}$$
+
+$$c_{4} = G_{3} + P_{3}.G_{2} + P_{3}.P_{2}.G_{1} + P_{3}.P_{2}.P_{1}.G_{0} + P_{3}.P_{2}.P_{1}.P_{0}.c_{0}$$
+
+All the propagate and generate signals are available at the same time. This is followed by the carry output $c_{0}$. Notice consecutive carry outputs $c_{i+1}$ are only dependent on the propagate, generate and $c_{0}$ signals. The carry output $c_{4}$ requires a 5-input AND gate and a 5-input OR gate, and is available after passing through these gates. 4,3 and 2-input AND gates are also required, although they are not the bottleneck. A 4-bit CLA is shown:
+
+<p align="center">
+    <img src="./Images/Arithmetic/4-Bit-CLA.png" alt="CLA Full-Adder Circuit Diagram" width="400"/>
+</p>
+
+As described above, the requirement for AND/OR gates with a high number of inputs means the carry logic block gets very complicated quickly. Therefore, CLA adders are usually implemented as 4-bit modules and used in hierarchical structure to implement adders with multiples of 4-bits.
+
+For further information view:
+- [Carry Lookahead Adder Article](https://www.ece.uvic.ca/~fayez/courses/ceng465/lab_465/project1/adders.pdf)
+- [Carry Lookahead Adder Video](https://www.youtube.com/watch?v=Esvcy5nbH90)
 
 ### Binary Subtracter
+
+#### 2's Complement
 
 TODO: Complete
 
@@ -220,7 +271,16 @@ The NOT gate can be implemented using CMOS technology as:
 
 Clearly, the NMOS pulls down the output ($out$) when the input signal ($in$) is high, and the PMOS is turned off. Similarly, the PMOS pulls up the output ($out$) when the input signal ($in$) is low, and the NMOS is turned off
 
-TODO: waveforms
+The following signals show the CMOS inverter transient behavior:
+
+<p align="center">
+    <img src="./Images/CMOS/NOT-Waves.png" alt="CMOS NOT gate transient behavior" width="200"/>
+</p>
+
+- The input is an ideal signal
+- The output is shown including propagation delay, rise and fall times
+- The gate consumes virtually no power for static signals
+- Power consumed when signal changes
 
 ### NAND gate
 The NAND gate corresponds to the following logical expression $F = \overline{A.B}$. The output of the gate $F$ is low (pulled down) when both $A$ and $B$ are true ($\overline{F} = A.B$). Applying DeMorgan's law the equivalent logical expression is $F = \overline{A.B} = \overline{A} + \overline{B}$. Clearly the output of the gate $F$ is high (pulled up) when $A$ or $B$ are low, this corresponds to the parallel PMOS pull up network configuration. The NAND gate can thus be implemented using CMOS technology as:
@@ -283,11 +343,14 @@ Hole mobility is lower then electron mobility. PMOS transistors utilize holes as
 - PMOS in series
 - NMOS in parallel
 
-As a consequence, due to PMOS transistors in series, NOR gates are slower than NAND gates. A NAND gate also typically occupy less area than a NOR gate
+As a consequence, due to PMOS transistors in series, NOR gates are slower than NAND gates. A NAND gate also typically occupies less area than a NOR gate
 
 ### General CMOS gates
+More complex CMOS gates can be constructed for general logic functions. The process for constructing such gates is similar to the way the fundamental gates were derived. Start with an expression in the form $F=\overline{SOP}$ to build the pull down network. Use DeMorgan's rules or duality principles to derive the pull-up network. If the expression $F=\overline{SOP}$ does not include a negation then an inverter will be needed at the output of the network.
 
-TODO: Complete
+Important notes:
+- The function should have an equal number of NMOS and PMOS gates
+- The NMOS/PMOS devices are duals of each other. Series pull-down NMOS correspond to parallel pull-up PMOS. Parallel pull-down NMOS correspond to series pull-up PMOS
 
 ## Karnaugh Maps
 
