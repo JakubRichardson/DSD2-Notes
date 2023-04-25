@@ -172,7 +172,12 @@ There are two fundamental transistors/switches used in CMOS: NMOS and PMOS trans
 
 #### NMOS transistor
 
+<p align="center">
+    <img src="./Images/CMOS/NMOS.png" alt="NMOS Enhancement Device" width="100"/>
+</p>
+
 As indicated by the single line on the symbol above, the NMOS transistor is On/closed when the control signal G is high
+
 
 Due to n-type source and drain:
 - Poor conduction when A/B is high
@@ -182,6 +187,10 @@ Due to n-type source and drain:
 Due to the source being n-type we must connect it to a source of electrons: $V_{ss}$
 
 #### PMOS transistor
+
+<p align="center">
+    <img src="./Images/CMOS/PMOS.png" alt="PMOS Enhancement Device" width="100"/>
+</p>
 
 As indicated by the circle above the single line on the symbol above, the PMOS transistor is On/closed when the control signal G is low
 
