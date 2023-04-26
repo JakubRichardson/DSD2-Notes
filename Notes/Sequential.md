@@ -41,11 +41,11 @@ The switches used for the latch are [Transmission Gates](https://github.com/Jaku
 
 When $G$ is high D/Q path is transparent. When G falls from high to low the output Q is frozen/memorized. Assuming the positive logic convention (low = 0, high = 1), the D-Latch operation table is:
 
-| $G$ | $D$ | $Q_{i}$ | State |
+| $G$ | $D$ | $Q_{i+1}$ | State |
 |-----|-----|-----|-------|
 | 1 | $D$ | $D$ | Transparent |
 | $\downarrow$ | $D$ | $D$ | Input Captured |
-| 0 | * | $Q_{i+1}$ | Output value held |
+| 0 | * | $Q_{i}$ | Output value held |
 
 The D-Latch transparent condition means data could be missed as the data capture window depends on the control signal $G$. This window can be minimized by using two D-latches in series, this is called a [D-Flip-Flop](#d-flip-flop)
 
