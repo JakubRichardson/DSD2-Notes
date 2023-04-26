@@ -282,6 +282,8 @@ The following signals show the CMOS inverter transient behavior:
 - The gate consumes virtually no power for static signals
 - Power consumed when signal changes
 
+TODO: Add more info on low power consumption
+
 ### NAND gate
 The NAND gate corresponds to the following logical expression $F = \overline{A.B}$. The output of the gate $F$ is low (pulled down) when both $A$ and $B$ are true ($\overline{F} = A.B$). Applying DeMorgan's law the equivalent logical expression is $F = \overline{A.B} = \overline{A} + \overline{B}$. Clearly the output of the gate $F$ is high (pulled up) when $A$ or $B$ are low, this corresponds to the parallel PMOS pull up network configuration. The NAND gate can thus be implemented using CMOS technology as:
 

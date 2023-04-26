@@ -55,5 +55,66 @@ TODO: Complete
 
 
 ## Memory
+Only the basics of memory are covered in this course. For example: details of how driver and sense amplifier work were not covered.
+
+### SRAM
+SRAM - Static Random Access Memory
+
+Static: Does not require refresh mechanism
+
+Random Access: Information stored in SRAM array can be accessed in any order
+
+Memory: Ability to store bit information
+
+$Read$/$\overline{Write}$: $R$/$\overline{W}$ control ine used to distinguish reading and writing operations
+- Sense amplifier used to read SRAM cells
+- Driver used to write to SRAM cells
+
+Volatile: Memory content lost when power supply switched off
+
+Used in: Microprocessors, FPGAs, ASICs, etc to provide on chip storage
+
+#### SRAM Cell
+An SRAM cell is constructed using feedback around 2 invertors. Although NMOS transistors cannot conduct strong high signals, they are used instead of Transmission gates. NMOS transistors are feasible as they do not need to provide full swing to the bit lines, and they minimize the SRAM cell complexity. The use of NMOS transistors, however, requires a complicated driver and sense amplifier.
+
+<p align="center">
+    <img src="../Images/Memory/SRAM-Cell.png" alt="SRAM Cell Circuit Diagram" width="300"/>
+</p>
+
+An NMOS transistors on both sides of the invertor memory cell is not necessary (one would suffice). They are, however, used to provide differential change to the bit line voltages, improving noise margin.
+
+#### SRAM Array
+
+<p align="center">
+    <img src="../Images/Memory/SRAM-Array.png" alt="SRAM Array Example" width="450"/>
+</p>
+
+#### Read operation
+
+<p align="center">
+    <img src="../Images/Memory/SRAM-Read.png" alt="SRAM Array Read Operation" width="450"/>
+</p>
+
+#### Write operation
+
+<p align="center">
+    <img src="../Images/Memory/SRAM-Write.png" alt="SRAM Array Write Operation" width="450"/>
+</p>
+
+#### Generic SRAM array
+
+<p align="center">
+    <img src="../Images/Memory/SRAM-Generic.png" alt="Generic Larger SRAM Array" width="250"/>
+</p>
+
+### DRAM
+DRAM - Dynamic Random Access memory
+
+
+
+
+
+
+
 
 ## Shift Registers
