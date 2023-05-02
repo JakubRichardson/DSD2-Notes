@@ -8,7 +8,7 @@
 
 Food Cooker Code contains exactly one true bit where the significance of the codeword is detailed by the bit position. An example of this code can be seen below:
 
-| 1 | 2 | 3 | 4 | 5 | 6 |
+| $b_5$ | $b_4$ | $b_3$ | $b_2$ | $b_1$ | $b_0$ |
 |---|---|---|---|---|---|
 | 1 | 0 | 0 | 0 | 0 | 0 |
 | 0 | 1 | 0 | 0 | 0 | 0 |
