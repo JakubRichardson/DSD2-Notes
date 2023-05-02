@@ -203,9 +203,9 @@ X + Y = \overline{\overline{X} \cdot \overline{Y}}$$
 
 This concept can be extended for repeated operations:
 
-$$X_1 \cdot X_2 \cdot ... \cdot X_n = \overline{\overline{X_1} + \overline{X_2} + ... + \overline{X_n}}\\
+$$X_1 \cdot X_2 \cdot ... \cdot X_n = \overline{\overline{X_1} + \overline{X_2} + ... + \overline{X_n}}$$
 
-X_1 + X_2 + ... + X_n= \overline{\overline{X_1} \cdot \overline{X_2} \cdot ... \cdot \overline{X_n}}$$
+$$X_1 + X_2 + ... + X_n= \overline{\overline{X_1} \cdot \overline{X_2} \cdot ... \cdot \overline{X_n}}$$
 
 ## NAND and NOR design
 
