@@ -130,9 +130,9 @@ The circuit diagram symbol for an XOR gate is:
 
 ### Duality Principle
 
-$$X + 0 = X \quad \textrm{and} \quad X \cdot 0 = 0\\
+$$X + 0 = X \quad \textrm{and} \quad X \cdot 0 = 0$$
 
-X + 1 = 1 \quad \textrm{and} \quad X \cdot 1 = X$$
+$$X + 1 = 1 \quad \textrm{and} \quad X \cdot 1 = X$$
 
 ### Idempotent Law
 
@@ -146,10 +146,11 @@ The order of two terms undergoing an operation can be switched without changing 
 
 ### Associative Law
 
-$$(X + Y) + Z = X + (Y + Z)\\
-(X \cdot Y) \cdot Z = X \cdot (Y \cdot Z)$$
+$$(X + Y) + Z = X + (Y + Z)$$
 
-If the same operation is being applied to multiple terms the order of the terms and placement of the brackets is changable
+$$(X \cdot Y) \cdot Z = X \cdot (Y \cdot Z)$$
+
+If the same operation is being applied to multiple terms the order of the terms and placement of the brackets is changeable
 
 ### Distributivity
 
@@ -166,26 +167,30 @@ Common terms can be taken out of brackets similar to standard algebra
 ### Complementation
 
 $$X + \overline{X} = 1 \quad \textrm{and} \quad X \cdot \overline{X} = 0$$
-Performing a boolean operation on an input A as well as $\overline{A}$ will result in the 1 0/0 1 output of the relevent truth table:
+
+Performing a boolean operation on an input A as well as $\overline{A}$ will result in 1 for OR and 0 for AND
 
 ### Absorption
 
 First form:
+
 $$X + X \cdot Y = X \quad \textrm{and} \quad X \cdot (X + Y) = X$$
 
 Second form:
-$$X + \overline{X} \cdot Y = X + Y \quad \textrm{and} \quad X \cdot (\overline{X} + Y) = X \cdot Y $$
+
+$$X + \overline{X} \cdot Y = X + Y \quad \textrm{and} \quad X \cdot (\overline{X} + Y) = X \cdot Y$$
 
 ### Logic Adjacency
 
-$$ Y \cdot X + Y \cdot \overline{X} = Y\quad \textrm{and} \quad (Y + X) \cdot (Y + \overline{X}) = Y $$
+$$Y \cdot X + Y \cdot \overline{X} = Y\quad \textrm{and} \quad (Y + X) \cdot (Y + \overline{X}) = Y$$
+
 When X and $\overline{X}$ can be factored out the equation can be simplified using complementation:
 
 ### Consensus
 
-$$X \cdot Y + Y \cdot Z + Z \cdot \overline{X} = X \cdot Y + Z \cdot \overline{X} $$
+$$X \cdot Y + Y \cdot Z + Z \cdot \overline{X} = X \cdot Y + Z \cdot \overline{X}$$
 
-$$(X + Y) \cdot (Y \cdot Z) \cdot (Z \cdot \overline{X}) = (X + Y) \cdot (Z \cdot \overline{X}) $$
+$$(X + Y) \cdot (Y \cdot Z) \cdot (Z \cdot \overline{X}) = (X + Y) \cdot (Z \cdot \overline{X})$$
 
 ### Involution
 
@@ -195,11 +200,11 @@ The double complement of any given value will result in the original value:
 
 ## De Morgan's Theorem
 
-De Morgan's Theorem states that a logical operation of 2 variables can be substited by the negation of the operation's counterpart:
+De Morgan's Theorem states that a logical operation of 2 variables can be substituted by the negation of the operation's counterpart:
 
-$$X \cdot Y = \overline{\overline{X} + \overline{Y}}\\
+$$X \cdot Y = \overline{\overline{X} + \overline{Y}}$$
 
-X + Y = \overline{\overline{X} \cdot \overline{Y}}$$
+$$X + Y = \overline{\overline{X} \cdot \overline{Y}}$$
 
 This concept can be extended for repeated operations:
 
@@ -255,7 +260,7 @@ AND can be found using De Morgan's and inverting the inputs to a NOR gate:
 
 ### Minterms
 
-If an AND term in a Boolean expression contains all the dirct or negated variables in the entire expression, it is called a fundamental product or minterm:
+If an AND term in a Boolean expression contains all the direct or negated variables in the entire expression, it is called a fundamental product or minterm:
 
 $$f(X_1,X_2,X_3) = X_1 \cdot X_2 \cdot \overline{X_3} \quad \textrm{is a minterm}$$
 
