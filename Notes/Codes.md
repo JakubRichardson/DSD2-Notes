@@ -23,7 +23,7 @@ This is an example of "one-hot" code meaning there is always exactly one true bi
 
 The codewords in Thermometer code have natural order of  significance with the value of each codeword being detailed by the number of bits present in each codeword:
 
-| 1 | 2 | 3 | 4 | 5 | 6 |
+| $b_5$ | $b_4$ | $b_3$ | $b_2$ | $b_1$ | $b_0$ |
 |---|---|---|---|---|---|
 | 1 | 1 | 1 | 1 | 1 | 1 |
 | 0 | 1 | 1 | 1 | 1 | 1 |
@@ -39,7 +39,7 @@ Similar to Food Cooker code this code is clearly sparse with $n + 1$ utilised co
 
 Gray code is another Hamming code with circular continuity of codewords. An example of a 3 bit Gray code can be seen below:
 
-| 1 | 2 | 3 |
+| $b_2$ | $b_1$ | $b_0$ |
 |---|---|---|
 | 0 | 0 | 0 |
 | 0 | 0 | 1 |
