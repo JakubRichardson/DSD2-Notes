@@ -189,7 +189,8 @@ $$(X + Y) \cdot (Y \cdot Z) \cdot (Z \cdot \overline{X}) = (X + Y) \cdot (Z \cdo
 
 ### Involution
 
-$$\overline{\overline{A}} = A$$
+$$\overline{\overline{X}} = X$$
+
 The double complement of any given value will result in the original value:
 
 ## De Morgan's Theorem
