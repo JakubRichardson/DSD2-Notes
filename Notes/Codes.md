@@ -198,5 +198,6 @@ Resolution varies but can be calculated for any given value using $2^{E-23}$. Th
 
 Calculating the IEEE value of 0x
 
-Double check solutions with the following IEEE 754 Calculator: [IEEE 754-1985 Calculator](ieeeinput.html)
+Double check solutions with the following IEEE 754 Calculator: [IEEE 754-1985 Calculator](file:///./ieee-converter.html)
+
 
