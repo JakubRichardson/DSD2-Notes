@@ -25,7 +25,6 @@ function print(){
     output = (1 - 2*sign)*(2**exponent)*sigval;
     document.getElementById("sign").innerHTML = "Sign = " + sign
     document.getElementById("exp").innerHTML = "Exponent = "+ exponent; 
-    document.getElementById("signif").innerHTML = "Significand = " + significand; 
     document.getElementById("sigval").innerHTML = "Value of the Significand = "+ sigval; 
     document.getElementById("finalval").innerHTML = "Value of IEEE 754 = "+output;
 }

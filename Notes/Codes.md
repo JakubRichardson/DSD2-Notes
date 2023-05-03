@@ -192,12 +192,33 @@ Given $F$ as the number of fractional bits the range is $0$ to $2^{N - F} - 2^{-
 
 The IEEE 754-1985 is an industry standard for representing floating-point numbers. The 32-bit codeword is made up of 3 similar codes that have already been explored. The code word is split up into 1:8:23 bits in the format sign:exponent:significand. The sign is 0 (+ve) or 1 (-ve) as in SM code. The exponent is an 8 bit offset BNN code with bias +127. Exponent codewords: 00000000 and 11111111 are used to represent values that would be impossible to represent otherwise such as 0, NaN and infinity. The significand is a Fixed-point BNN code with 23 fractional bits with an offset of -1 (i.e. every significand value is of the form 1.xxx...). Given the exponent is $E$ the final value is calculated as follows:
 
-$$ \textrm{float value} = (-1)^{sign} \cdot 2^E \cdot \textrm{value of Significand}$$
+$$\textrm{float value} = (-1)^{sign} \cdot 2^E \cdot \textrm{value of Significand}$$
 
 Resolution varies but can be calculated for any given value using $2^{E-23}$. The range of this code is from $\pm 2^{-126}$ to $\pm (2^{128} - 2^{-23})$. An example calculation can be seen below:
 
-Calculating the IEEE value of 0x
+Calculating the IEEE value of 0xE90F0002:
 
-Double check solutions with the following IEEE 754 Calculator: [IEEE 754-1985 Calculator](file:///./ieee-converter.html)
+First, convert the hexadecimal into its 32 bit binary equivalent: 
 
+$$E90F0002 \Rightarrow 11101001000011110000000000000010$$
+
+Splitting the binary codeword into its 3 codewords gives:
+
+$$\textrm{Sign} : \textrm{Exponent} : \textrm{Significand} \Rightarrow 1:11010010:00011110000000000000010$$
+
+From this the values for each component can be calculated
+
+$$\textrm{Sign} = 1 \Rightarrow -ve$$
+
+$$\textrm{Exponent} = 11010010 \Rightarrow E = 210 - 127 = 83$$
+
+$$\textrm{Significand} = 00011110000000000000010$$ 
+
+$$\Rightarrow 1 + 2^{-4} + 2^{-5}+  2^{-6}  + 2^{-7} + 2^{-22} = 1.1171877...$$
+
+Finally, the float value can be calculated:
+
+$$\textrm{float value} = (-1)^{1} \cdot 2^{83} \cdot 1.1171877 = -1.08047768 \cdot 10^{25}$$
+
+> Double check solutions by running the following converter: [IEEE 754-1985 Calculator](../IEEE_754/ieee.html)
 
