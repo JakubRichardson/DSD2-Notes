@@ -198,26 +198,5 @@ Resolution varies but can be calculated for any given value using $2^{E-23}$. Th
 
 Calculating the IEEE value of 0x
 
-Calculator:
-
-<!DOCTYPE html>
-<html lang ="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
-        <title>IEEE Calculator</title>
-    </head>
-    <body>
-        <label for="hexieee">Enter the hex value of the IEEE 754-1985 code:</label><br><br>
-        <input type= "text" id="hexieee">
-        <button onclick="print()">Calculate</button>
-        <!-- <input type="submit" value="submit"> -->
-        <div id="sign"></div>
-        <div id="exp"></div>
-        <div id="signif"></div>
-        <div id="sigval"></div>
-        <div id="finalval"></div>
-    <script src="ieee.js"></script>
-    </body>
-</html>
+Double check solutions with the following IEEE 754 Calculator: [IEEE 754-1985 Calculator](ieeeinput.html)
 
