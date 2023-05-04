@@ -222,5 +222,5 @@ Finally, the float value can be calculated:
 
 $$\textrm{float value} = (-1)^{1} \cdot 2^{83} \cdot 1.1171877 = -1.08047768 \cdot 10^{25}$$
 
-> Double check solutions by running the following converter: [IEEE 754-1985 Calculator](../IEEE_754/ieee.html)
+> Double check solutions by running the following converter: [IEEE 754-1985 Calculator](../IEEE_754/)
 
