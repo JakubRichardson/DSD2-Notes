@@ -2,6 +2,8 @@
 
 ## Sparse vs Dense
 
+If a code makes use of less than half of its available codewords its said to be sparse, otherwise its called dense. Binary codes have $2^N$ available codewords for $N$ bits so, in this case, codes that have less than $2^{N - 1}$ codewords would be deemed sparse.
+
 ## Non-Number Codes
 
 ### "Food Cooker" Code
@@ -194,7 +196,7 @@ The IEEE 754-1985 is an industry standard for representing floating-point number
 
 $$\textrm{float value} = (-1)^{sign} \cdot 2^E \cdot \textrm{value of Significand}$$
 
-Resolution varies but can be calculated for any given value using $2^{E-23}$. The range of this code is from $\pm 2^{-126}$ to $\pm (2^{128} - 2^{-23})$. An example calculation can be seen below:
+Resolution varies but can be calculated for any given value using $2^{E-23}$. The range of this code is from $\pm 2^{-126}$ to $\pm (2^{127} \cdot (2 - 2^{-23}))$. An example calculation can be seen below:
 
 Calculating the IEEE value of 0xE90F0002:
 
