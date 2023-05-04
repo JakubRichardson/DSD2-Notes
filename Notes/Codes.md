@@ -97,7 +97,7 @@ BNN has a range of 0 to $2^N - 1$ for $N$ bits. The resolution is uniform and un
 Signed Magnitude operates under the same principles as BNN with an added sign bit in the leftmost position:
 
 | $b_4$ | $b_3$ | $b_2$ | $b_1$ | $b_0$ | Decimal | 
-|------|-------|-------|-------|-------|---------|
+|------|-------|-------|-------|--------|---------|
 | Sign | $2^3$ | $2^2$ | $2^1$ | $2^0$ |  | 
 | 1 | 1 | 0 | 1 | 0 | -10 | 
 | 0 | 1 | 0 | 1 | 0 | 10 | 

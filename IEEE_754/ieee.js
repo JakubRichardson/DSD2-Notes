@@ -16,7 +16,10 @@ function print(){
     var significand = ieee & bit_23;
     var sigval = 1;
     var output;
-
+    if (exponent == -127 || exponent == 128){
+        document.getElementById("warning").innerHTML = "WARNING - Invalid Exponent value" + "<br />" + "Typically all 0 or 1 values for exponents are reserved for numbers that can't be " + "<br />" + "represented by IEEE 754 such as 0, NaM, infinity or denorm";
+        return;
+    }
     for(var i = 0; i < 23; ++i){
         var exp = -23 + i;
         sigval += ((significand >> i)&0x1) * (2**exp);
@@ -27,4 +30,5 @@ function print(){
     document.getElementById("exp").innerHTML = "Exponent = " + exponent; 
     document.getElementById("sigval").innerHTML = "Value of the Significand = " + sigval; 
     document.getElementById("finalval").innerHTML = "Value of IEEE 754 = " + output;
+    return;
 }
