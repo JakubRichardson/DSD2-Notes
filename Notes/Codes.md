@@ -102,7 +102,7 @@ Signed Magnitude operates under the same principles as BNN with an added sign bi
 | 1 | 1 | 0 | 1 | 0 | -10 | 
 | 0 | 1 | 0 | 1 | 0 | 10 | 
 
-THe Sign bit denotes a negative integer when 1, and subsequently positive when 0. Similar to BNN the resolution is uniform and unity. SM is zero balanced making the range: $-(2^{N-1} - 1)$ to $+(2^{N-1} - 1)$, 1 less than BNN. The loss of one value in the range is due to two codewords representing 0: 1000 and 0000.
+The Sign bit denotes a negative integer when 1, and subsequently positive when 0. Similar to BNN the resolution is uniform and unity. SM is zero balanced making the range: $-(2^{N-1} - 1)$ to $+(2^{N-1} - 1)$, 1 less than BNN. The loss of one value in the range is due to two codewords representing 0: 1000 and 0000.
 
 ### One's Complement 
 
