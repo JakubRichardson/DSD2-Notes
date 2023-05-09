@@ -2,7 +2,7 @@
 
 ## Sparse vs Dense
 
-If a code makes use of less than or equal to half of its available codewords its said to be sparse, otherwise the code is  dense. Binary codes have $2^N$ available codewords for $N$ bits so, in this case, codes that have $ \le 2^{N - 1}$ codewords would be deemed sparse.
+If a code makes use of less than or equal to half of its available codewords its said to be sparse, otherwise the code is  dense. Binary codes have $2^N$ available codewords for $N$ bits so, in this case, codes that have $\le 2^{N - 1}$ codewords would be deemed sparse.
 
 ## Non-Number Codes
 
