@@ -271,10 +271,10 @@ The NOT gate can be implemented using CMOS technology as:
 
 Clearly, the NMOS pulls down the output ($out$) when the input signal ($in$) is high, and the PMOS is turned off. Similarly, the PMOS pulls up the output ($out$) when the input signal ($in$) is low, and the NMOS is turned off
 
-The following signals show the CMOS inverter transient behavior:
+The following signals show the CMOS inverter transient behaviour:
 
 <p align="center">
-    <img src="../Images/CMOS/NOT-Waves.png" alt="CMOS NOT gate transient behavior" width="200"/>
+    <img src="../Images/CMOS/NOT-Waves.png" alt="CMOS NOT gate transient behaviour" width="200"/>
 </p>
 
 - The input is an ideal signal
@@ -332,7 +332,7 @@ Different gates require different numbers of transistors to implement:
 - 4 transistors to implement 2-input NAND/NOR gates
 - 6 transistors to implement 2-input AND/OR gates
 
-Using a CMOS implementation of boolean expressions it is more efficient to use NAND/NOR gates as opposed to AND/OR gates. When possible, DeMorgans's laws can be used to convert NAND/NOR expressions
+Using a CMOS implementation of boolean expressions it is more efficient to use NAND/NOR gates as opposed to AND/OR gates. When possible, DeMorgan's laws can be used to convert NAND/NOR expressions
 
 ### NAND vs NOR
 Hole mobility is lower then electron mobility. PMOS transistors utilize holes as majority charge carriers, whereas NMOS use electrons. Due to this PMOS transistors have less drive strength then equivalent geometry NMOS transistors.
