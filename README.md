@@ -1,9 +1,9 @@
 # Digital Systems Design 2
 
 # Table of Contents
-- [Boolean Algebra](https://github.com/JakubRichardson/DSD2-Notes/blob/master/Notes/Boolean.md)
-- [Binary Codes](https://github.com/JakubRichardson/DSD2-Notes/blob/master/Notes/Codes.md)
-- [Combinational Logic](https://github.com/JakubRichardson/DSD2-Notes/blob/master/Notes/Combinational.md)
-- [Sequential Logic](https://github.com/JakubRichardson/DSD2-Notes/blob/master/Notes/Sequential.md)
-- [Design Synthesis](https://github.com/JakubRichardson/DSD2-Notes/blob/master/Notes/DesignSynthesis.md)
+- [Boolean Algebra](./Notes/Boolean.md)
+- [Binary Codes](./Notes/Codes.md)
+- [Combinational Logic](./Notes/Combinational.md)
+- [Sequential Logic](./Notes/Sequential.md)
+- [Design Synthesis](./Notes/DesignSynthesis.md)
 
